@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1>Daftar Mahasiswa</h1>
-        <a href="?action=create" class="btn btn-success">Tambah Mahasiswa Baru</a>
+        <a href="?action=create" class="btn btn-success">Tambah Data Mahasiswa</a>
         <table class="data-table">
             <thead>
                 <tr>
