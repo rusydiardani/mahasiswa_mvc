@@ -10,7 +10,7 @@ class MahasiswaModel {
             die("Koneksi gagal: " . $this->db->connect_error);
         }
     }
-
+    
     // CREATE
     public function addMahasiswa($nama, $nim, $jurusan) {
         $stmt = $this->db->prepare("INSERT INTO mahasiswa (nama, nim, jurusan) VALUES (?, ?, ?)");
