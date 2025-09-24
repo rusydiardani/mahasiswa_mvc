@@ -11,7 +11,7 @@ class MahasiswaModel {
         }
     }
 
-    // CREATE: Menambahkan data mahasiswa baru
+    // CREATE
     public function addMahasiswa($nama, $nim, $jurusan) {
         $stmt = $this->db->prepare("INSERT INTO mahasiswa (nama, nim, jurusan) VALUES (?, ?, ?)");
         $stmt->bind_param("sss", $nama, $nim, $jurusan);
@@ -20,7 +20,7 @@ class MahasiswaModel {
         return $result;
     }
 
-    // READ: Mengambil semua data mahasiswa
+    // READ All
     public function getAllMahasiswa() {
         $sql = "SELECT * FROM mahasiswa";
         $result = $this->db->query($sql);
@@ -33,7 +33,7 @@ class MahasiswaModel {
         return $mahasiswa;
     }
 
-    // READ: Mengambil data mahasiswa berdasarkan ID
+    // READ by ID
     public function getMahasiswaById($id) {
         $stmt = $this->db->prepare("SELECT * FROM mahasiswa WHERE id = ?");
         $stmt->bind_param("i", $id);
@@ -44,7 +44,7 @@ class MahasiswaModel {
         return $mahasiswa;
     }
 
-    // UPDATE: Memperbarui data mahasiswa
+    // UPDATE
     public function updateMahasiswa($id, $nama, $nim, $jurusan) {
         $stmt = $this->db->prepare("UPDATE mahasiswa SET nama = ?, nim = ?, jurusan = ? WHERE id = ?");
         $stmt->bind_param("sssi", $nama, $nim, $jurusan, $id);
@@ -53,7 +53,7 @@ class MahasiswaModel {
         return $result;
     }
 
-    // DELETE: Menghapus data mahasiswa
+    // DELETE
     public function deleteMahasiswa($id) {
         $stmt = $this->db->prepare("DELETE FROM mahasiswa WHERE id = ?");
         $stmt->bind_param("i", $id);
@@ -62,7 +62,7 @@ class MahasiswaModel {
         return $result;
     }
     
-    // UTILITY: Mereset AUTO_INCREMENT ID menjadi 1
+    // UTILITY: Mereset AUTO_INCREMENT ID
     public function resetAutoIncrement() {
         $sql = "ALTER TABLE mahasiswa AUTO_INCREMENT = 1";
         $result = $this->db->query($sql);
