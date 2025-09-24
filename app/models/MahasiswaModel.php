@@ -61,4 +61,11 @@ class MahasiswaModel {
         $stmt->close();
         return $result;
     }
+    
+    // UTILITY: Mereset AUTO_INCREMENT ID menjadi 1
+    public function resetAutoIncrement() {
+        $sql = "ALTER TABLE mahasiswa AUTO_INCREMENT = 1";
+        $result = $this->db->query($sql);
+        return $result;
+    }
 }
